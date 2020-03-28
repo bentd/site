@@ -1,0 +1,5 @@
+.next
+.atomignore
+.gitignore
+LICENSE
+package-lock.json

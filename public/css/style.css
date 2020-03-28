@@ -1,0 +1,96 @@
+* {
+  font-family: courier, monospace;
+}
+
+.fg-black {
+  color: black;
+}
+
+.fg-white {
+  color: white;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-gray {
+  background-color: gray;
+}
+
+.bg-tan {
+  background-color: tan;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.border-style {
+  border: 2px solid black;
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+  color: burlywood !important;
+}
+
+#main-col-mugshot {
+  background: url(../img/shot.jpg);
+  background-position: center;
+  background-size: cover;
+  filter: sepia(70%);
+}
+
+#main-col-wheels {
+  background: url(../img/bike.jpg);
+  background-position: center;
+  background-size: cover;
+  filter: sepia(80%);
+}
+
+.section-col {
+  height: 80vmin;
+}
+
+#section-col-education {
+  background-color: tan;
+}
+
+.contact-col {
+  height: 15vmin;
+}
+
+
+.contact-col div a,
+.contact-col div a:hover,
+.contact-col div a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+
+footer {
+}
+
+@media screen and (max-width: 376px) {
+  * {
+    font-size: 0.25rem;
+  }
+  #title {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  * {
+    font-size: 0.75rem;
+  }
+  .main-col {
+  }
+}
+
+@media screen and (max-height: 400px) and (min-width: 500px) {
+  .section-col {
+    height: 80vmax;
+  }
+}
