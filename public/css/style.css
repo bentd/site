@@ -35,14 +35,14 @@
 }
 
 #main-col-mugshot {
-  background: url(../img/shot.jpg);
+  /*background: url(../img/shot.jpg);*/
   background-position: center;
   background-size: cover;
   filter: sepia(70%);
 }
 
 #main-col-wheels {
-  background: url(../img/bike.jpg);
+  /*background: url(../img/bike.jpg);*/
   background-position: center;
   background-size: cover;
   filter: sepia(80%);
