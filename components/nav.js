@@ -10,7 +10,7 @@ export default class extends Component {
         <div className="container-fluid p-0">
           <div className="row align-items-center w-100 mx-auto">
             <div className="col-12 col-sm-4 border-style bg-tan pl-3 py-3">
-              <Link href="#"><a className="navbar-brand float-none pl-3">Dylan Bent</a></Link>
+              <Link href="#"><a className="navbar-brand float-none pl-3">{ this.props.name }</a></Link>
               <button className="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>

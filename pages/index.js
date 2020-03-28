@@ -44,8 +44,8 @@ const emptyHome = {
 function Index({ info }) {
   return (
     <div>
-      <Head title="Dylan Bent"></Head>
-      <Nav></Nav>
+      <Head title={ info.name }></Head>
+      <Nav name={ info.name }></Nav>
       <Terminal></Terminal>
       <Info info={ info }></Info>
     </div>
