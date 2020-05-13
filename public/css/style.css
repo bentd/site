@@ -30,36 +30,39 @@
   border: 2px solid black;
 }
 
+
+
+
+
+
+
 .navbar-light .navbar-nav .active > .nav-link {
   color: burlywood !important;
 }
 
-#main-col-mugshot {
-  /*background: url(../img/shot.jpg);*/
-  background-position: center;
-  background-size: cover;
-  filter: sepia(70%);
-}
-
-#main-col-wheels {
-  /*background: url(../img/bike.jpg);*/
-  background-position: center;
-  background-size: cover;
-  filter: sepia(80%);
+.main-col {
+  height: 60vmax;
 }
 
 .section-col {
   height: 80vmin;
 }
 
+footer {
+}
+
+
+
+
+
+
 #section-col-education {
   background-color: tan;
 }
 
 .contact-col {
-  height: 15vmin;
+  height: 10vmin;
 }
-
 
 .contact-col div a,
 .contact-col div a:hover,
@@ -68,8 +71,34 @@
   text-decoration: none;
 }
 
+.portfolio-image {
+  height: 100%;
+}
 
-footer {
+.barricade {
+  background: repeating-linear-gradient( 45deg, gray, gray 10px, darkgray 10px, darkgray 20px );
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-height: 400px) and (min-width: 500px) {
+  .section-col {
+    height: 80vmax;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .barricade {
+    height: 10vh !important;
+  }
 }
 
 @media screen and (max-width: 376px) {
@@ -84,8 +113,6 @@ footer {
 @media screen and (max-width: 476px) {
   * {
     font-size: 0.75rem;
-  }
-  .main-col {
   }
 }
 

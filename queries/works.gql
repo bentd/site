@@ -1,0 +1,22 @@
+query {
+  info {
+    name
+    nouns
+    greeting
+    role
+  }
+  works {
+    title
+    description
+    gallery {
+      fields {
+        file {
+          url
+        }
+      }
+    }
+    link
+    order
+    label
+  }
+}

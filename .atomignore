@@ -1,5 +1,5 @@
 .next
 .atomignore
 .gitignore
-LICENSE
+license
 package-lock.json

@@ -1,105 +1,24 @@
-import { Component } from "React";
-import fetch from 'node-fetch';
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
-import gql from "graphql-tag";
-import Head from "../components/head";
-import Nav from "../components/nav";
+import { client } from "./_app";
+import query from "../queries/works.gql";
+import Layout from "../components/layout";
 import Terminal from "../components/terminal";
-import Info from "../components/info";
+import Work from "../components/work";
 
-const cache = new InMemoryCache();
-const link = new HttpLink({
-  uri: "http://localhost:4000/",
-  fetch: fetch
-});
 
-const client = new ApolloClient({
-  cache,
-  link
-});
-
-const emptyHome = {
-  name: "",
-  heroNouns: [],
-  greeting: "",
-  role: "",
-  skills: [],
-  university: "",
-  degree: "",
-  graduationDate: "",
-  hobbyLabel: "",
-  hobbyPhoto: {},
-  contactMessage: "",
-  contactEmail: "",
-  contactLabel1: "",
-  contactLink1: "",
-  contactLabel2: "",
-  contactLink2: "",
-  contactLabel3: "",
-  contactLink3: ""
-};
-
-function Index({ info }) {
+export default function Index({ info, works }) {
   return (
-    <div>
-      <Head title={ info.name }></Head>
-      <Nav name={ info.name }></Nav>
-      <Terminal></Terminal>
-      <Info info={ info }></Info>
-    </div>
+    <Layout info={ info } index={ 0 }>
+    <Terminal nouns={ info.nouns } />
+      {works.map((work, index) =>
+        <Work work={ work } index={ index } />
+      )}
+    </Layout>
   )
 }
 
-export async function getServerSideProps(context) {
-  // NOTE: componentDidMount is not used in next.js
-  return await client
-    .query({
-      query: gql`
-        query {
-          home {
-            name
-            heroNouns
-            greeting
-            role
-            headshotPhoto {
-              fields {
-                file {
-                  url
-                }
-              }
-            }
-            skills
-            university
-            degree
-            graduationDate
-            hobbyLabel
-            hobbyPhoto {
-              fields {
-                file {
-                  url
-                }
-              }
-            }
-            contactMessage
-            contactEmail
-            contactLabel1
-            contactLink1
-            contactLabel2
-            contactLink2
-            contactLabel3
-            contactLink3
-          }
-        }
-      `
-  })
-  .then(result => {
-    return { props: {
-      fetched: true,
-      info: result.data.home }
-    };
-  });
-}
 
-export default Index;
+export async function getStaticProps(context) {
+  return await client
+    .query({ query: query })
+    .then(result => ({ props: { fetched: true, works: result.data.works, info: result.data.info }}));
+}
