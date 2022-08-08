@@ -13,7 +13,7 @@
 }
 
 #terminal-container::before {
-  background: url(../img/mac_lg.jpg);
+  background: url(/img/mac_lg.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
@@ -93,7 +93,7 @@
 
 @media screen and (max-width: 366px) {
   #terminal-container::before {
-    background: url(../img/mac_x_sm.jpg);
+    background: url(/img/mac_x_sm.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -104,7 +104,7 @@
 
 @media screen and (min-width: 367px) and (max-width: 575px) {
   #terminal-container::before {
-    background: url(../img/mac_sm.jpg);
+    background: url(/img/mac_sm.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -115,7 +115,7 @@
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
   #terminal-container::before {
-    background: url(../img/mac_md.jpg);
+    background: url(/img/mac_md.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
