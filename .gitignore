@@ -1,5 +1,5 @@
 .env
 .env.local
-.next
-logs
-node_modules
+.next/
+logs/
+node_modules/
