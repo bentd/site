@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Script from "next/Script";
+import Script from "next/script";
 
 export default function({ title, greeting, role }) {
   return (
