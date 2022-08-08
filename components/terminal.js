@@ -27,8 +27,8 @@ export default function Terminal({ nouns }) {
     };
 
     let typed = new Typed(".typed", options);
-
-    $(".main-col").innerHeight(72 + $("nav").outerHeight());
+    let newHeight = $(window).innerHeight() - $("nav").outerHeight() - 32;
+    $(".main-col").css("height", `${newHeight}px`);
   })
 
   return (

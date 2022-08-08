@@ -1,22 +1,43 @@
-import { ApolloClient } from "apollo-client";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { HttpLink } from "apollo-link-http";
-import dotenv from "dotenv";
-import gql from "graphql-tag";
-import fetch from "node-fetch";
+import { ApolloClient, HttpLink, InMemoryCache, from } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 
-dotenv.config();
 
-const cache = new InMemoryCache();
-const link = new HttpLink({
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import "../public/css/style.css";
+import "../public/css/terminal.css";
+
+
+const httpLink = new HttpLink({
   uri: process.env.ENDPOINT,
-  fetch: fetch
+  credentials: 'same-origin',
+  headers: {
+    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
+  }
 });
+
+
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    graphQLErrors.forEach(({ message, locations, path }) => {
+      console.log(
+        `[GraphQL error]: Message: ${message}, ` + 
+        `Location: ${locations}, ` + 
+        `Path: ${path}`
+      );
+    })
+  }
+  if (networkError) {
+    console.log(`[Network error]: ${networkError}`);
+  }
+});
+
 
 export const client = new ApolloClient({
-  cache,
-  link
+  link: from([errorLink, httpLink]),
+  cache: new InMemoryCache()
 });
+
 
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />

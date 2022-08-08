@@ -1,21 +1,19 @@
 import { client } from "./_app";
-import query from "../queries/info.gql";
+import homeQuery from "../queries/home";
 import Layout from "../components/layout";
 import Terminal from "../components/terminal";
-import Info from "../components/info";
 
 
-export default function About({ info }) {
+export default function About({ home }) {
   return (
-    <Layout info={ info } index={ 1 }>
-      <Info info={ info } />
+    <Layout home={ home } index={ 1 }>
     </Layout>
   );
 }
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps() {
   return await client
-    .query({ query: query })
-    .then(result => ({ props: { fetched: true, info: result.data.info }}));
+    .query({ query: homeQuery })
+    .then(result => ({ props: { fetched: true, home: result.data.homeCollection.items[0] }}));
 }

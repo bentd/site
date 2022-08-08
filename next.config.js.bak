@@ -1,11 +1,14 @@
 const webpack = require("webpack")
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-
-module.exports = withBundleAnalyzer({
+module.exports = {
   webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on "fs" module
+    // https://github.com/zeit/next.js/issues/7755
+    if (!isServer) {
+      config.node = {
+        fs: 'empty'
+      }
+    }
     // Fixes code that depend on "jquery" module
     // https://github.com/zeit/next.js/issues/1465
     config.plugins.push(
@@ -24,4 +27,4 @@ module.exports = withBundleAnalyzer({
     })
     return config
   }
-});
+}

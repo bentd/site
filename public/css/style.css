@@ -30,31 +30,13 @@
   border: 2px solid black;
 }
 
-
-
-
-
-
-
 .navbar-light .navbar-nav .active > .nav-link {
   color: burlywood !important;
-}
-
-.main-col {
-  height: 60vmax;
 }
 
 .section-col {
   height: 80vmin;
 }
-
-footer {
-}
-
-
-
-
-
 
 #section-col-education {
   background-color: tan;
@@ -78,16 +60,6 @@ footer {
 .barricade {
   background: repeating-linear-gradient( 45deg, gray, gray 10px, darkgray 10px, darkgray 20px );
 }
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (max-height: 400px) and (min-width: 500px) {
   .section-col {

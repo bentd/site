@@ -1,20 +1,20 @@
 import { client } from "./_app";
-import query from "../queries/info.gql";
+import homeQuery from "../queries/home";
 import Layout from "../components/layout";
 import Terminal from "../components/terminal";
 
-export default function Blog({ info }) {
+export default function Blog({ home }) {
   return (
-    <Layout info={ info } index={ 2 }>
+    <Layout home={ home } index={ 2 }>
       <div>
-        <Terminal nouns={ info.nouns } />
+        <Terminal nouns={ home.nouns } />
       </div>
     </Layout>
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps() {
   return await client
-    .query({ query: query })
-    .then(result => ({ props: { fetched: true, info: result.data.info }}));
+    .query({ query: homeQuery })
+    .then(result => ({ props: { fetched: true, home: result.data.homeCollection.items[0] }}));
 }
