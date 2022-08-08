@@ -17,12 +17,7 @@ export default function Index({ home }) {
 
 
 export async function getServerSideProps() {
-  console.log(`index.js getServerSideProps before client.query`)
   return await client
     .query({ query: homeQuery })
-    .then(result => {
-      console.log(`index.js getServerSideProps after client.query - result ${JSON.stringify(result)}`)
-      return result
-    })
     .then(result => ({ props: { fetched: true, home: result.data.homeCollection.items[0] }}));
 }

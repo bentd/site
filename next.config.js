@@ -14,14 +14,6 @@ module.exports = withBundleAnalyzer({
         "jQuery": "jquery",
       })
     )
-    // Allows code to import qraphql files
-    // https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config
-    // https://github.com/apollographql/graphql-tag#webpack-loading-and-preprocessing    
-    config.module.rules.push({
-      test: /\.(graphql|gql)$/,
-      exclude: /node_modules/,
-      loader: 'graphql-tag/loader'
-    })
     return config
   }
 });
